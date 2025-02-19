@@ -1,0 +1,28 @@
+name: Deploy Bot
+
+on:
+  push:
+    branches:
+      - main  # Runs when you push to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Adjust Python version as necessary
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt  # Install your dependencies
+
+    - name: Run bot
+      run: |
+        python bot-code.py  # Replace with your Python file
+      env:
+        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}  # Using GitHub Secrets for sensitive data
