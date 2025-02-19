@@ -48,12 +48,12 @@ async def on_message(message):
     if message.channel.id == SOURCE_CHANNEL_1_ID:
         target_channel = client.get_channel(TARGET_CHANNEL_1_ID)
         if target_channel:
-            await target_channel.send(f"📢 **New Message from Source 1:**\n{message.content}")
+            await target_channel.send(f"📢 **Auto Message:**\n{message.content}")
 
     elif message.channel.id == SOURCE_CHANNEL_2_ID:
         target_channel = client.get_channel(TARGET_CHANNEL_2_ID)
         if target_channel:
-            await target_channel.send(f"📢 **New Message from Source 2:**\n{message.content}")
+            await target_channel.send(f"📢 **Auto Message:**\n{message.content}")
 
 # Start Flask before running the bot
 keep_alive()
